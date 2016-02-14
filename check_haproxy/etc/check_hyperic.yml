@@ -1,0 +1,7 @@
+
+health_map :
+  unknown : 3
+  critical: 2
+  warning : 1
+  ok      : 0
+

@@ -1,0 +1,3 @@
+
+haproxy_stat_socket             : '/var/lib/haproxy/stats'
+servers_exclude                 : []                        # no exclusion by default

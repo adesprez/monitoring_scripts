@@ -1,0 +1,2 @@
+
+haproxy_stat_socket   : '/var/lib/haproxy/stats'
