@@ -1,0 +1,175 @@
+<plugin name="haproxy">
+  <property name="version" value="1.0" />
+  <filter name="template" value="exec:timeout=120,file=%script%" />
+  <metrics name="Health">
+    <metric name="Availability" category="AVAILABILITY"
+    template="${template}:Availability" indicator="true" />
+  </metrics>
+  <metrics name="global_proxy_stats">
+    <metric name="Uptime" template="${template}:Uptime_sec"
+    units="sec" indicator="true" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Total connections"
+    template="${template}:CumConns" units="none" indicator="true"
+    category="THROUGHPUT" collectionType="dynamic" />
+    <metric name="Current connections"
+    template="${template}:CurrConns" units="none" indicator="true"
+    category="UTILIZATION" collectionType="dynamic" />
+    <metric name="Total requests" template="${template}:CumReq"
+    units="none" indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+  </metrics>
+  <metrics name="image_backend">
+    <metric name="Total requests"
+    template="${template}:image-backend_req_tot" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="Total sessions"
+    template="${template}:image-backend_stot" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="Denied requests"
+    template="${template}:image-backend_dreq" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="Error requests"
+    template="${template}:image-backend_ereq" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 200"
+    template="${template}:image-backend_hrsp_2xx" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 300"
+    template="${template}:image-backend_hrsp_3xx" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 400"
+    template="${template}:image-backend_hrsp_4xx" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 500"
+    template="${template}:image-backend_hrsp_5xx" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+  </metrics>
+  <metrics name="ssl_backend">
+    <metric name="Total requests"
+    template="${template}:ssl-backend_req_tot" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="Total sessions"
+    template="${template}:ssl-backend_stot" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="Denied requests"
+    template="${template}:ssl-backend_dreq" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="Error requests"
+    template="${template}:ssl-backend_ereq" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 200"
+    template="${template}:ssl-backend_hrsp_2xx" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 300"
+    template="${template}:ssl-backend_hrsp_3xx" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 400"
+    template="${template}:ssl-backend_hrsp_4xx" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 500"
+    template="${template}:ssl-backend_hrsp_5xx" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+  </metrics>
+  <metrics name="image1_stats">
+    <metric name="Total sessions"
+    template="${template}:image1_stot" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 200" template="${template}:image1_hrsp_2xx"
+    units="none" indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 300" template="${template}:image1_hrsp_3xx"
+    units="none" indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 400" template="${template}:image1_hrsp_4xx"
+    units="none" indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 500" template="${template}:image1_hrsp_5xx"
+    units="none" indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+  </metrics>
+  <metrics name="image2_stats">
+    <metric name="Total sessions"
+    template="${template}:image2_stot" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 200" template="${template}:image2_hrsp_2xx"
+    units="none" indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 300" template="${template}:image2_hrsp_3xx"
+    units="none" indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 400" template="${template}:image2_hrsp_4xx"
+    units="none" indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 500" template="${template}:image2_hrsp_5xx"
+    units="none" indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+  </metrics>
+  <metrics name="ssl1_stats">
+    <metric name="Total sessions"
+    template="${template}:ssl1_stot" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 200"
+    template="${template}:ssl1_hrsp_2xx" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 300"
+    template="${template}:ssl1_hrsp_3xx" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 400"
+    template="${template}:ssl1_hrsp_4xx" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+    <metric name="HTTP 500"
+    template="${template}:ssl1_hrsp_5xx" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="dynamic" />
+  </metrics>
+  <server name="HAproxy" version="1.5.X">
+    <config>
+      <option name="script" description="HAproxy script"
+      default="pdk/scripts/check_haproxy.py" />
+    </config>
+    <plugin type="measurement"
+    class="org.hyperic.hq.product.MeasurementPlugin" />
+    <metrics include="Health" />
+    <service name="Global proxy stats">
+      <metrics include="global_proxy_stats" />
+    </service>
+    <service name="Image backend">
+      <metrics include="image-backend" />
+    </service>
+    <service name="SSL backend">
+      <metrics include="portal_backend" />
+    </service>
+    <service name="image1">
+      <metrics include="image1_stats" />
+    </service>
+    <service name="image2">
+      <metrics include="image2_stats" />
+    </service>
+    <service name="ssl1">
+      <metrics include="ssl1_stats" />
+    </service>
+  </server>
+</plugin>
