@@ -3,7 +3,9 @@
 
 This script will check the general state of HAproxy, state of individual servers and list HAproxy stats
 with the following format:
+```
 metric_name=metric_value
+```
 
 This script was originally intended to be used by vmWare's Hyperic monitoring system. This script was tested on
 HAproxy 1.5.
@@ -14,7 +16,8 @@ HAproxy 1.5.
 - socat command line to get HAproxy stats
 - sudo capable account to be able to read on HAproxy stats socket
 
-You must create the file `/etc/hostname.short` in order to be able to apply per server configuration
+You must create the file `/etc/hostname.short` in order to be able to apply per server configuration (see Configuration
+by machine section below)
 
 
 # HAproxy configuration
@@ -60,6 +63,8 @@ backend image-backend
 ```
 
 We don't want the script to fail if the servers *image3* or *image4* are down.
+
+On `check_haproxy.yml:
 ```yaml
 servers_exclude                 : ['image3', 'image4']
 ```
@@ -110,4 +115,5 @@ haproxy_stat_socket             : '/var/lib/haproxy/stats'
 
 This script was written in order to graph HAproxy stats on vmWare's Hyperic monitoring system.
 
-You mus
+You can find on `lib` directory an example of an Hyperic plugin (*haproxy-plugin.xml*) that can use the *check_haproxy.py* script to
+graph some key metrics of HAproxy stats.
