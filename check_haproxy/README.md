@@ -64,7 +64,7 @@ backend image-backend
 
 We don't want the script to fail if the servers *image3* or *image4* are down.
 
-On `check_haproxy.yml:
+On `check_haproxy.yml`:
 ```yaml
 servers_exclude                 : ['image3', 'image4']
 ```
