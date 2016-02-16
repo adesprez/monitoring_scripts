@@ -24,7 +24,7 @@ Usage: ./check_haproxy.py
 __author__  = "Adrien Desprez"
 __email__   = "adrien.desprez@gmail.com"
 __license__ = "GPL"
-
+__version__ = "1.0"
 
 import os
 import sys

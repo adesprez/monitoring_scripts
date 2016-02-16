@@ -117,3 +117,8 @@ This script was written in order to graph HAproxy stats on vmWare's Hyperic moni
 
 You can find on `lib` directory an example of an Hyperic plugin (*haproxy-plugin.xml*) that can use the *check_haproxy.py* script to
 graph some key metrics of HAproxy stats.
+
+
+# Changelog
+
+1.0 : Initial version
