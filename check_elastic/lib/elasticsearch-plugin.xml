@@ -1,0 +1,186 @@
+<plugin name="elasticsearch">
+  <property name="version" value="1.0" />
+  <filter name="template" value="exec:timeout=120,file=%script%" />
+  <metrics name="Health">
+    <metric name="Availability" category="AVAILABILITY"
+    template="${template}:Availability" indicator="true" />
+    <metric name="Nodes count"
+    template="${template}:number_of_nodes" units="none"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Data nodes count"
+    template="${template}:number_of_data_nodes" units="none"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Active shards count"
+    template="${template}:active_shards" units="none"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Process CPU percent used"
+    template="${template}:process_cpu_percent" units="none"
+    indicator="true" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Process resident memory used"
+    template="${template}:process_mem_resident_in_Gbytes"
+    units="GB" indicator="true" category="UTILIZATION"
+    collectionType="dynamic" />
+  </metrics>
+  <metrics name="JVM">
+    <metric name="Heap memory used"
+    template="${template}:heap_used_in_Gbytes" units="GB"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Heap memory percent used"
+    template="${template}:heap_used_percent" units="percentage"
+    indicator="true" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Heap memory committed"
+    template="${template}:heap_committed_in_Gbytes" units="GB"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Max heap memory"
+    template="${template}:heap_max_in_Gbytes" units="GB"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Young memory used"
+    template="${template}:pools_young_used_in_Gbytes" units="GB"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Max young memory"
+    template="${template}:pools_young_max_in_Gbytes" units="GB"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Survivor memory used"
+    template="${template}:pools_survivor_used_in_Gbytes" units="GB"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Max survivor memory"
+    template="${template}:pools_survivor_max_in_Gbytes" units="GB"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Old memory used"
+    template="${template}:pools_old_used_in_Gbytes" units="GB"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Max old memory"
+    template="${template}:pools_old_max_in_Gbytes" units="GB"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Young GC counts"
+    template="${template}:gc_young_collection_count" units="none"
+    indicator="true" category="PERFORMANCE"
+    collectionType="trendsup" rate="1h" />
+    <metric name="Young GC time"
+    template="${template}:gc_young_collection_time_in_millis"
+    units="ms" indicator="true" category="PERFORMANCE"
+    collectionType="trendsup" rate="1h" />
+    <metric name="Old GC counts"
+    template="${template}:gc_old_collection_count" units="none"
+    indicator="true" category="PERFORMANCE"
+    collectionType="trendsup" rate="1h" />
+    <metric name="Old GC time"
+    template="${template}:gc_old_collection_time_in_millis"
+    units="ms" indicator="true" category="PERFORMANCE"
+    collectionType="trendsup" rate="1h" />
+    <metric name="Filter cache size"
+    template="${template}:filter_cache_size" units="B"
+    indicator="true" category="UTILIZATION"/>
+    <metric name="Id cache size"
+    template="${template}:id_cache_size" units="B"
+    indicator="true" category="UTILIZATION"/>
+    <metric name="Fielddata size"
+    template="${template}:fielddata_size" units="B"
+    indicator="true" category="UTILIZATION"/>
+    <metric name="Query cache size"
+    template="${template}:query_cache_size" units="B"
+    indicator="true" category="UTILIZATION"/>
+  </metrics>
+  <metrics name="Indices">
+    <metric name="Docs count" template="${template}:docs_count"
+    units="none" indicator="true" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Docs deleted" template="${template}:docs_deleted"
+    units="none" indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Store size"
+    template="${template}:store_size_in_Gbytes" units="GB"
+    indicator="true" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Store throttle time"
+    template="${template}:store_throttle_time_in_millis" units="ms"
+    indicator="false" category="PERFORMANCE"
+    collectionType="trendsup" rate="1m" />
+    <metric name="Index" template="${template}:index_total"
+    units="none" indicator="true" category="THROUGHPUT"
+    collectionType="trendsup" rate="1m" />
+    <metric name="Index time"
+    template="${template}:index_time_in_millis" units="ms"
+    indicator="true" category="PERFORMANCE"
+    collectionType="trendsup" rate="1m" />
+    <metric name="Index current"
+    template="${template}:index_current" units="none"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Gets" template="${template}:get_total"
+    units="none" indicator="true" category="THROUGHPUT"
+    collectionType="trendsup" rate="1m" />
+    <metric name="Get time"
+    template="${template}:get_time_in_millis" units="ms"
+    indicator="true" category="PERFORMANCE"
+    collectionType="trendsup" rate="1m" />
+    <metric name="Searches"
+    template="${template}:search_query_total" units="none"
+    indicator="true" category="THROUGHPUT"
+    collectionType="trendsup" rate="1m" />
+    <metric name="Search time"
+    template="${template}:search_query_time_in_millis" units="ms"
+    indicator="true" category="PERFORMANCE"
+    collectionType="trendsup" rate="1m" />
+    <metric name="Search open contexts"
+    template="${template}:search_open_contexts" units="none"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Merges" template="${template}:get_total"
+    units="none" indicator="true" category="THROUGHPUT"
+    collectionType="trendsup" rate="1m" />
+    <metric name="Merges current"
+    template="${template}:merges_current" units="none"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Merges current docs"
+    template="${template}:merges_current_docs" units="none"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Merges current size"
+    template="${template}:merges_current_size_in_bytes" units="B"
+    indicator="true" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Fielddata evictions"
+    template="${template}:fielddata_evictions" units="none"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Segments count"
+    template="${template}:segments_count" units="none"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+    <metric name="Segments memory"
+    template="${template}:segments_memory_in_Gbytes" units="GB"
+    indicator="false" category="UTILIZATION"
+    collectionType="dynamic" />
+  </metrics>
+  <server name="ElasticSearch" version="1.4">
+    <config>
+      <option name="script" description="Elasticsearch script"
+      default="" />
+    </config>
+    <plugin type="measurement"
+    class="org.hyperic.hq.product.MeasurementPlugin" />
+    <metrics include="Health" />
+    <service name="Indices">
+      <metrics include="Indices" />
+    </service>
+    <service name="JVM">
+      <metrics include="JVM" />
+    </service>
+  </server>
+</plugin>

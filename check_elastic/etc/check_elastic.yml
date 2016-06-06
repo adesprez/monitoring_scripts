@@ -1,0 +1,18 @@
+
+host : '127.0.0.1'
+port : '9200'
+
+health_map_elastic :
+  green: 'ok'
+  yellow: 'warning'
+  red: 'critical'
+
+valid_options: ['general','nodes','data_nodes','shards']
+
+caches :
+  filter_cache: '_stats/filter_cache'
+  id_cache: '_stats/id_cache'
+  fielddata: '_stats/fielddata'
+  percolate: '_stats/percolate'
+  query_cache: '_stats/query_cache'
+

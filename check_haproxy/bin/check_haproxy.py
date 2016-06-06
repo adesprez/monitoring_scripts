@@ -13,7 +13,12 @@ This script was originally intended to be used by vmWare's Hyperic monitoring sy
 Prerequisites:
 - PyYAML library in order to parse the configuration files
 - socat command line to get HAproxy stats
-- sudo capable account to be able to ready on HAproxy stats socket
+- sudo capable account to be able to read on HAproxy stats socket
+
+Compatibility:
+- Python : 2.6, 2.7
+- HAproxy: 1.5
+- Tested on CentOS 6.7
 
 You must create the file /etc/hostname.short in order to be able to apply per server configuration
 
