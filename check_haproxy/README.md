@@ -8,7 +8,7 @@ metric_name=metric_value
 ```
 
 This script was originally intended to be used by vmWare's Hyperic monitoring system. This script was tested on
-HAproxy 1.5.
+HAproxy 1.5. This script is compatible with Python 2.6, 2.7, 3.3.
 
 # Prerequisites
 
