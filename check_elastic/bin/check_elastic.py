@@ -45,8 +45,8 @@ try:
     hyperic_config_file = '%s/../etc/check_hyperic.yml' % script_path
     if os.path.exists(general_config_file):
         with open(general_config_file, 'r') as f:
-            generalConfig = yaml.load(f)
-            config.update(generalConfig)
+            general_config = yaml.load(f)
+            config.update(general_config)
     if os.path.exists(hyperic_config_file):
         with open(hyperic_config_file, 'r') as f:
             hyperic_config = yaml.load(f)
