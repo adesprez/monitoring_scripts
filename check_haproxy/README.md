@@ -121,4 +121,5 @@ graph some key metrics of HAproxy stats.
 
 # Changelog
 
-1.0 : Initial version
+* 1.1 : Python 3.3 compatibility
+* 1.0 : Initial version
